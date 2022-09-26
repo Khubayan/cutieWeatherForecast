@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/44a661a249.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item-1 hover-effect">
+        <div class="grid-text-row">
+          <h2 class="title-sm-text">Humidity</h2>
+          <h2 class="title-lg-text" id="humidity">65%</h2>
+          <div class="f-center">
+            <div class="container-bar">
+              <div class="skill" id="bar-content"></div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-text-row">
+          <h2 class="title-sm-text" id="country-name">Indonesia</h2>
+          <h3 class="title-lg-text location">Jakarta</h3>
+          <p class="title-sm-text" id="time-field"></p>
+        </div>
+        <div class="icon-container">
+            <div class="btn-icon">
+                <i class="fas fa-cog"></i>
+                <i class="far fa-question-circle"></i>
+                <i class="fas fa-coffee"></i>
+            </div>
+        </div>
+      </div>
+      <div class="grid-item-2 hover-effect">
+        <h2 class="title-sm-text">Wind Status</h2>
+        <h3 class="title-lg-text" id="wind-speed">7 MPH</h3>
+        <p>m/s</p>
+      </div>
+      <div class="grid-item-4 hover-effect">
+        <div class="weather-day-1">
+          <p>Tommorow</p>
+          <div>
+            <img
+              class="weather-sm-pic"
+              src="/images/animated/0.svg"
+              alt=""
+              srcset=""
+            />
+          </div>
+          <p class="temp-next-day">18 <span>&#8451;</span></p>
+        </div>
+        <div class="weather-day-2">
+          <p class="next-date">Tue, 27 Oct</p>
+          <div>
+            <img
+              class="weather-sm-pic"
+              src="/images/animated/"0.svg
+              alt=""
+              srcset=""
+            />
+          </div>
+          <p class="temp-next-day">18 <span>&#8451;</span></p>
+        </div>
+        <div class="weather-day-3">
+          <p class="next-date">Wed, 28 Oct</p>
+          <div>
+            <img
+              class="weather-sm-pic"
+              src="/images/animated/0.svg"
+              alt=""
+              srcset=""
+            />
+          </div>
+          <p class="temp-next-day">18 <span>&#8451;</span></p>
+        </div>
+        <div class="weather-day-4">
+          <p class="next-date">Thu, 29 Oct</p>
+          <div>
+            <img
+              class="weather-sm-pic"
+              src="/images/animated/0.svg"
+              alt=""
+              srcset=""
+            />
+          </div>
+          <p class="temp-next-day">18 <span>&#8451;</span></p>
+        </div>
+        <div class="footer-card">
+            <h2>Images created by <a href="https://www.amcharts.com/">amCharts</a> & data provides by <a href="https://openweathermap.org/">OpenWeather</a> and <a href="https://open-meteo.com/">Open-Meteo</a></h2>
+        </div>
+      </div>
+      <div class="grid-item-5 hover-effect">
+        <h2 class="title-sm-text">Air Pressure</h2>
+        <h3 class="title-lg-text" id="air-pressure">998 MB</h3>
+        <h2 class="footer-text">Copyrigt &copy 2022 </h2>
+      </div>
+      <div class="grid-item-3 hover-effect">
+        <div class="search-bar">
+          <input id="search-data" type="text" placeholder="Search city..." />
+          <div type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane" onclick="(fetchData())"></i></div>
+        </div>
+        <div class="lg-image">
+          <img src="/images/animated/0.svg" alt="" srcset="" />
+        </div>
+        <div class="d-inline">
+          <h2 class="title-lg-text" id="temperature">26 <span>&#8451;</span></h2>
+        </div>
+        <div class="weather">
+          <h2 id="weather">Bright</h2>
+        </div>
+        <div class="date">
+          <p>Today <span>&#183;</span> Sun, 25 Oct</p>
+        </div>
+        <div class="location">Jakarta</div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="api-call.js"></script>
+  </body>
+</html>
