@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&display=swap');
+
+:root {
+    --clr-primary-400: 	#AAC4FF;
+    --clr-secondary-400:  	#B1B2FF ;
+    --clr-secondary-500:  	#D2DAFF;
+    --clr-light: aliceblue;
+    --clr-soft-dark: #9A86A4;
+    --clr-orange: #FFD24C;
+
+    --ft--primary-color: #EEF1FF;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    /* border: 2px solid khaki ; */
+    font-family: 'Bubblegum Sans', cursive;
+}
+
+body {
+    display: grid;
+    background-color: var(--clr-secondary-500);
+    min-height: 100vh;
+    place-content: center;
+    color: var(--ft--primary-color);
+    text-shadow: 2px 3px var(--clr-secondary-400);
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-orange);
+}
+
+.grid-container {
+    display: grid;
+    width: 60rem;
+    height: 30rem;
+    /* border: 2px solid red; */
+    gap: 9px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+        'box-1 box-1 box-2 box-3'
+        'box-4 box-4 box-5 box-3';
+    
+    }
+    
+    
+.grid-container > * {
+    display: flex;
+    /* background-color: aqua; */
+    /* border: 1.5px solid yellow; */
+    border-radius: 20px 20px;
+}
+
+/* universal style */
+.grid-item-2,
+.grid-item-5 {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.grid-container > *:hover {
+    color: var(--clr-primary-400);
+    text-shadow: 1px 1px var(--clr-soft-dark);
+}
+
+
+.grid-item-1 {
+    display: grid;
+    grid-template-columns: 1fr 2fr .1fr;
+    grid-area: box-1;
+    background-color: var(--clr-primary-400);
+    box-shadow: 6px 6px 20px 0px rgba(0,0,0,0.75);
+
+}
+
+.grid-item-2 {
+    display: grid;
+    grid-template-rows: .7fr 1.5fr .3fr;
+    grid-area: box-2;
+    background-color: var(--clr-primary-400);
+    box-shadow: 6px 6px 20px 0px rgba(0,0,0,0.75);
+}
+
+.grid-item-3 {
+    display: grid;
+    grid-template-rows: .5fr 2fr 1.5fr .5fr .3fr .3fr;
+    place-content: center;
+    grid-area: box-3;
+    color: var(--clr-primary-400);
+    background-color: var(--clr-light);
+    transition: all 1s ease-out;
+    box-shadow: 6px 6px 20px 0px rgba(0,0,0,0.75);
+}
+
+.grid-item-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+        'card-1 card-2 card-3 card-4'
+        'footer footer footer footer';
+    justify-content: space-evenly;
+    align-items: center;
+    grid-area: box-4;
+    background-color: var(--clr-secondary-400);
+    box-shadow: 6px 6px 20px 0px rgba(0,0,0,0.75);
+}
+
+.grid-item-5 {
+    display: grid;
+    grid-template-rows: .1fr 1.7fr .2fr;
+    grid-area: box-5;
+    background-color: var(--clr-primary-400);
+    box-shadow: 6px 6px 20px 0px rgba(0,0,0,0.75);
+}
+
+
+/* style for item in grid-item */
+.grid-item-1 > * {
+    /* border: 1px solid sienna; */
+    height: 100%;
+}
+
+.grid-item-2 > p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+    padding-bottom: .6rem;
+}
+
+.grid-text-row { 
+    display: grid;
+    grid-template-rows: .5fr 1fr .5fr;
+}
+
+.icon-container {
+    margin-top: 3rem;
+}
+.btn-icon:first-child i {
+    margin-bottom: 1rem;
+    margin-right: .4rem;
+}
+
+.weather-day-1,
+.weather-day-2,
+.weather-day-3,
+.weather-day-4 {
+    display: grid;
+    grid-template-rows: .5fr 1fr .5fr;
+}
+
+.weather-day-1 {
+    grid-area: card-1;
+}
+
+.weather-day-2 {
+    grid-area: card-2;
+}
+
+.weather-day-3 {
+    grid-area: card-3;
+}
+
+.weather-day-4 {
+    grid-area: card-4;
+}
+
+.footer-card {
+    display: flex;
+    justify-content: center;
+    grid-area: footer;
+}
+
+.footer-card > h2,
+h2.footer-text {
+    font-size: small;
+}
+
+h2.footer-text {
+    display: flex;
+    justify-self: center;
+}
+
+/* card text styles */
+.title-sm-text,
+.title-lg-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* font-weight: 500; */
+}
+
+.grid-item-5 > h2.title-sm-text {
+    padding-top: 1rem;
+} 
+
+
+/* weather img on small card */
+.weather-sm-pic {
+    width: 100%;
+    align-self: center;
+}
+
+.weather-day-1 > p,
+.weather-day-2 > p,
+.weather-day-3 > p,
+.weather-day-4 > p {
+    display: flex;
+    justify-content: center;
+}
+
+/* centering text and image*/
+.grid-item-3 > * {
+    display: flex;
+    justify-content: center;
+    text-shadow: 1px 1px var(--clr-secondary-400);
+}
+
+
+/* light font */
+.date > p {
+    font-family: 'Bubbler One', sans-serif;
+}
+
+.title-lg-text {
+    font-size: 3rem;
+}
+
+/* additional effects */
+.grid-container > *:hover {
+    background-color: var(--clr-light);
+}
+
+.grid-container > .grid-item-1:hover ~.grid-item-3,
+.grid-container > .grid-item-2:hover ~.grid-item-3,
+.grid-container > .grid-item-4:hover ~.grid-item-3,
+.grid-container > .grid-item-5:hover ~.grid-item-3{
+    background-color: var(--clr-secondary-400);
+    color: var(--clr-light);
+} 
+
+input {
+    background-color:transparent;
+    border: none;
+    border-bottom: 2px solid var(--clr-primary-400);
+    height: 1rem;;
+    width: 9rem;
+    margin-top: 1rem;
+    margin-left: .6rem;
+    margin-right: .2rem;
+    font-size: medium;
+}
+input:focus {
+    outline:none;
+}
+
+.btn-submit {
+    margin-top: 1.2rem;
+}
+
+.btn-submit > i {
+    font-size: 1.3rem;
+}
+
+.btn-submit > i:hover {
+    color: var(--clr-secondary-400);
+}
+
+.d-inline {
+    display: inline-block;
+}
+
+/* progress bar */
+.container-bar {
+    background-color: aliceblue;
+    width: 80%;
+    height: 1rem;
+    border-radius: 15px;
+}
+
+.skill {
+    background-color: var(--clr-secondary-500);
+    padding: 1%;
+    border-radius: 15px;
+    height: .85rem;
+}
+
+/* .e {
+    width: 65%;
+} */
+
+.f-center {
+    display: flex;
+    justify-content: center;
+}
+
+/* .weather-day:hover {
+
+} */
+
+.grid-item-1:hover .container-bar {
+    background-color: var(--clr-primary-400);
+}
+/*
+.grid-item-1:hover .skill {
+    background-color: var(--clr-secondary-500);
+} */
+
+.hover-effect:hover {
+    box-shadow: 1px 1px 20px 0px rgba(50, 211, 240, 0.75);
+}
+
+
+/* animations
+.pulse-animation:hover  {
+    animation: pulse 1.4s ease-in;
+} */
+
+
+/* keyframes */
+/* @keyframes pulse {
+    0% { */
+        /* background-color: white; */
+    /* }
+    100% {
+        background-color: aliceblue;
+    }
+} */
