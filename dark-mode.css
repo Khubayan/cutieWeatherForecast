@@ -1,0 +1,40 @@
+.dark-body {
+  background-color: #1c0c5b;
+  color: #916bbf;
+}
+
+.grid-item-dark {
+  background-color: #3d2c8d;
+  color: #916bbf;
+  text-shadow: 1px 1px #3d2c8d;
+}
+
+.grid-item-dark:hover {
+  background-color: #a460ed;
+  box-shadow: 1px 1px 20px 0px #916bbf;
+}
+
+.grid-item-3.grid-item-dark {
+  background-color: #a460ed;
+  color: #9fc9f3;
+}
+
+.grid-container > .grid-item-1.grid-item-dark:hover ~ .grid-item-3,
+.grid-container > .grid-item-2.grid-item-dark:hover ~ .grid-item-3,
+.grid-container > .grid-item-4.grid-item-dark:hover ~ .grid-item-3,
+.grid-container > .grid-item-5.grid-item-dark:hover ~ .grid-item-3 {
+  background-color: #3d2c8d;
+  color: #9fc9f3;
+}
+
+#search-data::placeholder {
+  color: #9fc9f3;
+}
+
+input.dark-input {
+  color: #9fc9f3;
+}
+
+input.dark-input:focus {
+  color: #16213e;
+}
