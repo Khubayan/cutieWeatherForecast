@@ -4,9 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>CutieWeCast</title>
+    <link rel="icon" type="image/x-icon" href="/images/weather.png">
     <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/44a661a249.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="dark-mode.css" />
+    <link rel="stylesheet" href="respondsives.css" />
+    <script
+      src="https://kit.fontawesome.com/44a661a249.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="grid-container">
@@ -26,11 +33,11 @@
           <p class="title-sm-text" id="time-field"></p>
         </div>
         <div class="icon-container">
-            <div class="btn-icon">
-                <i class="fas fa-cog"></i>
-                <i class="far fa-question-circle"></i>
-                <i class="fas fa-coffee"></i>
-            </div>
+          <div class="btn-icon">
+            <i class="fas fa-cog" id="mpopup-setting"></i>
+            <i class="far fa-question-circle" id="mpopup-info"></i>
+            <i class="fas fa-coffee" id="mpopup-coffee"></i>
+          </div>
         </div>
       </div>
       <div class="grid-item-2 hover-effect">
@@ -56,7 +63,8 @@
           <div>
             <img
               class="weather-sm-pic"
-              src="/images/animated/"0.svg
+              src="/images/animated/"
+              0.svg
               alt=""
               srcset=""
             />
@@ -88,24 +96,33 @@
           <p class="temp-next-day">18 <span>&#8451;</span></p>
         </div>
         <div class="footer-card">
-            <h2>Images created by <a href="https://www.amcharts.com/">amCharts</a> & data provides by <a href="https://openweathermap.org/">OpenWeather</a> and <a href="https://open-meteo.com/">Open-Meteo</a></h2>
+          <h2>
+            Images created by <a href="https://www.amcharts.com/">amCharts</a> &
+            data provides by
+            <a href="https://openweathermap.org/">OpenWeather</a> and
+            <a href="https://open-meteo.com/">Open-Meteo</a>
+          </h2>
         </div>
       </div>
       <div class="grid-item-5 hover-effect">
         <h2 class="title-sm-text">Air Pressure</h2>
         <h3 class="title-lg-text" id="air-pressure">998 MB</h3>
-        <h2 class="footer-text">Copyrigt &copy 2022 </h2>
+        <h2 class="footer-text">Copyrigt &copy 2022</h2>
       </div>
       <div class="grid-item-3 hover-effect">
         <div class="search-bar">
           <input id="search-data" type="text" placeholder="Search city..." />
-          <div type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane" onclick="(fetchData())"></i></div>
+          <div type="submit" class="btn-submit">
+            <i class="fa-solid fa-paper-plane" onclick="(fetchData())"></i>
+          </div>
         </div>
         <div class="lg-image">
           <img src="/images/animated/0.svg" alt="" srcset="" />
         </div>
         <div class="d-inline">
-          <h2 class="title-lg-text" id="temperature">26 <span>&#8451;</span></h2>
+          <h2 class="title-lg-text" id="temperature">
+            26 <span>&#8451;</span>
+          </h2>
         </div>
         <div class="weather">
           <h2 id="weather">Bright</h2>
@@ -116,7 +133,24 @@
         <div class="location">Jakarta</div>
       </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Modal popup box -->
+    <div id="mpopupBox" class="mpopup">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">×</span>
+          <h2>About</h2>
+        </div>
+        <div class="modal-body m-content">
+        </div>
+        <div class="modal-footer m-content">
+        </div>
+      </div>
+    </div>
+
     <script src="api-call.js"></script>
+    <script src="script.js"></script>
+    <script src="modal.js"></script>
   </body>
 </html>
