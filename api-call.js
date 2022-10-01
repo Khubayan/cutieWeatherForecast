@@ -11,25 +11,26 @@ const humidityBar = document.getElementById("bar-content");
 const nextDayTemp = document.querySelectorAll(".temp-next-day");
 const picPlaces = document.querySelectorAll(".weather-sm-pic");
 const lgImg = document.querySelector(".lg-image img");
-const countryName = document.getElementById('country-name');
+const countryName = document.getElementById("country-name");
+const searchData = document.getElementById("search-data");
 //
 function fetchData() {
-  let searchData = document.getElementById("search-data").value;
-  (searchData.length === 0 ? searchData = 'Jakarta' : '' );
+  let searchDataValue = document.getElementById("search-data").value;
+  searchDataValue.length === 0 ? (searchDataValue = "Jakarta") : "";
   const request = new XMLHttpRequest();
   request.open(
     "GET",
-    `https://api.openweathermap.org/data/2.5/weather?q=${searchData}&appid=f70f0c8d9cddb4dd2761bb28d1e9bbc7`
+    `https://api.openweathermap.org/data/2.5/weather?q=${searchDataValue}&appid=f70f0c8d9cddb4dd2761bb28d1e9bbc7`
   );
   request.send();
   request.addEventListener("load", function () {
-      const data = JSON.parse(this.responseText);
-      if(data.cod == 404) {
-        alert('City not found');
-        return 0;
-      }
-      const  countryCode = data.sys.country;
-      console.log(data);
+    const data = JSON.parse(this.responseText);
+    if (data.cod == 404) {
+      alert("City not found");
+      return 0;
+    }
+    const countryCode = data.sys.country;
+    const weatherCond = data.weather[0].main;
 
     cityName.forEach(function (item) {
       item.innerText = data.name;
@@ -37,11 +38,41 @@ function fetchData() {
     windSpeed.innerText = data.wind.speed;
     airPreesure.innerText = `${data.main.pressure} hPa`;
     temperature.innerHTML = `${(data.main.temp - 273.15).toFixed(1)} &#8451;`;
-    weather.innerText = data.weather[0].main;
+    weather.innerText = weatherCond;
     humidity.innerHTML = `${data.main.humidity}%`;
     humidityBar.style.width = `${data.main.humidity}%`;
     const lat = data.coord.lat;
     const lon = data.coord.lon;
+
+    //Icon for today
+    if (weatherCond == "clear sky") {
+    } else if (weatherCond == "scattered clouds") {
+      lgImg.src = `/images/animated/45-48-.svg`;
+    }
+
+    switch (weatherCond) {
+      case "Clear":
+        lgImg.src = `/images/animated/0.svg`;
+        break;
+      case "Clouds":
+        lgImg.src = `/images/animated/45-48-.svg`;
+        break;
+      case "Snow":
+        lgImg.src = `/images/animated/85,86.svg`;
+        break;
+      case "Rain":
+        lgImg.src = `/images/animated/80,81,82.svg`;
+        break;
+      case "Drizzle":
+        lgImg.src = `/images/animated/66,77.svg`;
+        break;
+      case "Thunderstorm":
+        lgImg.src = `/images/animated/95-99.svg`;
+        break;
+      default:
+        lgImg.src = `/images/animated/weather.svg`;
+        break;
+    }
 
     //Temperature
     const request2 = new XMLHttpRequest();
@@ -57,7 +88,6 @@ function fetchData() {
       nextDayTemp.forEach(function (item) {
         tempArr.push(item);
       });
-      console.log(data.hourly.temperature_2m);
       for (let i = 1; i <= 4; ++i) {
         tempArr[i - 1].innerHTML = `${
           data.hourly.temperature_2m[i * 24]
@@ -76,7 +106,6 @@ function fetchData() {
     request3.addEventListener("load", function () {
       const picsNameArr = [];
       const data = JSON.parse(this.responseText);
-      console.log(data.daily.weathercode);
 
       for (let i = 0; i <= 4; ++i) {
         switch (data.daily.weathercode[i]) {
@@ -135,31 +164,30 @@ function fetchData() {
           default:
             break;
         }
-
-        if (i == 0) {
-          lgImg.src = `/images/animated/${picsNameArr[i]}`;
-        } else {
-          picPlaces[i - 1].src = `/images/animated/${picsNameArr[i]}`;
-        }
       }
-      console.log(picPlaces);
+      for (let i = 0; i <= 3; ++i)
+        picPlaces[i].src = `/images/animated/${picsNameArr[i + 1]}`;
     });
- 
+
     const reqCountryName = new XMLHttpRequest();
-    reqCountryName.open('GET', `https://restcountries.com/v2/alpha/${countryCode}`);
+    reqCountryName.open(
+      "GET",
+      `https://restcountries.com/v2/alpha/${countryCode}`
+    );
     reqCountryName.send();
 
-    reqCountryName.addEventListener('load', function() {
-        const data = JSON.parse(this.responseText);
-        console.log(data);
-        countryName.innerText = data.name;
+    reqCountryName.addEventListener("load", function () {
+      const data = JSON.parse(this.responseText);
+      countryName.innerText = data.name;
     });
-
-});
-
-
-};
+  });
+}
 
 fetchData();
-
 //I promise will learn promise!.
+
+searchData.addEventListener("keyup", (e) => {
+  if (e.key == "Enter" && searchData.length != 0) {
+    fetchData();
+  }
+});
