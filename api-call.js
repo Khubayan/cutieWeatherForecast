@@ -47,30 +47,30 @@ function fetchData() {
     //Icon for today
     if (weatherCond == "clear sky") {
     } else if (weatherCond == "scattered clouds") {
-      lgImg.src = `/images/animated/45-48-.svg`;
+      lgImg.src = `images/animated/45-48-.svg`;
     }
 
     switch (weatherCond) {
       case "Clear":
-        lgImg.src = `/images/animated/0.svg`;
+        lgImg.src = `images/animated/0.svg`;
         break;
       case "Clouds":
-        lgImg.src = `/images/animated/45-48-.svg`;
+        lgImg.src = `images/animated/45-48-.svg`;
         break;
       case "Snow":
-        lgImg.src = `/images/animated/85,86.svg`;
+        lgImg.src = `images/animated/85,86.svg`;
         break;
       case "Rain":
-        lgImg.src = `/images/animated/80,81,82.svg`;
+        lgImg.src = `images/animated/80,81,82.svg`;
         break;
       case "Drizzle":
-        lgImg.src = `/images/animated/66,77.svg`;
+        lgImg.src = `images/animated/66,77.svg`;
         break;
       case "Thunderstorm":
-        lgImg.src = `/images/animated/95-99.svg`;
+        lgImg.src = `images/animated/95-99.svg`;
         break;
       default:
-        lgImg.src = `/images/animated/weather.svg`;
+        lgImg.src = `images/animated/weather.svg`;
         break;
     }
 
@@ -166,7 +166,7 @@ function fetchData() {
         }
       }
       for (let i = 0; i <= 3; ++i)
-        picPlaces[i].src = `/images/animated/${picsNameArr[i + 1]}`;
+        picPlaces[i].src = `images/animated/${picsNameArr[i + 1]}`;
     });
 
     const reqCountryName = new XMLHttpRequest();
